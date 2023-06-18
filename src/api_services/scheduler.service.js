@@ -1,8 +1,14 @@
-import ExampleJob from "../jobs/example_job";
+import ExampleJob from "../jobs/ExampleJob";
+import QueueExecutor from "../jobs/queueExecutor";
 
 const SchedulerService = {
     init: async () => {
-        (new ExampleJob()).everyFiveSeconds();
+        // Execute the jobs in the queue
+        setInterval(() => {
+            (new QueueExecutor()).executeQueuedJobs();
+        }, 10000); // Execute queue every minute
+
+        // (new ExampleJob()).everyFiveSeconds();
     }
 }
 
