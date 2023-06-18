@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 import expressService from "./services/express.service";
 import sequelizeService from "./services/sequelize.service";
 import awsService from "./services/aws.service";
+import { logger } from "./config/logger";
 dotenv.config();
 
 const services = [expressService, awsService, sequelizeService];
@@ -18,3 +19,11 @@ const services = [expressService, awsService, sequelizeService];
     process.exit(1);
   }
 })();
+
+
+const errorHandler = (error) => {
+  logger.error(error);
+}
+
+
+process.on('uncaughtException', errorHandler)

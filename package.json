@@ -6,7 +6,9 @@
   "author": "gadfaria <gadfaria@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "migrate": "npx sequelize-cli db:migrate",
+    "migrate:fresh": "npx sequelize-cli db:migrate:undo:all; npx sequelize-cli db:migrate"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.310.0",
@@ -20,7 +22,9 @@
     "mysql2": "^3.0.0",
     "pg": "^8.10.0",
     "sequelize": "^6.28.2",
+    "sqlite3": "^5.1.6",
     "uuid": "^9.0.0",
+    "winston": "^3.9.0",
     "yup": "^1.0.0"
   },
   "devDependencies": {
