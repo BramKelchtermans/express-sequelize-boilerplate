@@ -1,4 +1,4 @@
-import JwtService from "../services/jwt.service";
+import JwtService from "../api_services";
 import {BadTokenError} from "../utils/ApiError"
 
 const authMiddleware = async (req, res, next) => {
